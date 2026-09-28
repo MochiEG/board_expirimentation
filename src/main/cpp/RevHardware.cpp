@@ -11,12 +11,24 @@ void RevHardware::init(){}
 //
 void RevHardware::runVortexWithRT(){
     double rt_value = m_xbox->getRightTriggerValue();
-    m_vortex.Set(rt_value);
+    m_drive_vortex.Set(rt_value/10);
 }
 
 //--------------------------------------------------------------------------------
 //
-void RevHardware::runNeoWithLeftStickY(){
-    double left_stick_y = m_xbox->getLeftStickYValue();
-    m_neo.Set(left_stick_y);
+void RevHardware::runDriveAtSpeed(double speed){
+    m_drive_vortex.Set(speed);
 }
+
+void RevHardware::runTurnWithLeftY(){
+    double speed = m_xbox->getLeftStickYValue();
+    m_turn_vortex.Set(speed/10);
+}
+
+// void RevHardware::runDriveWithSICK(double speed){
+//     if(m_dio.getSICKSensorValue()){
+//         m_drive_vortex.Set(speed);
+//     } else {
+//         m_drive_vortex.Set(0);
+//     }
+// }

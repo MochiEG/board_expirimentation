@@ -23,9 +23,9 @@ void Robot::TeleopInit() {
 //
 void Robot::TeleopPeriodic()
 {
-  
-  m_rev_hardware.runVortexWithRT();
-  cout << "encoder distance " << m_rev_hardware.getEncoderDistance()<< "\n";
+  m_rev_hardware.runDriveAtSpeed(0.08);
+  m_rev_hardware.runTurnWithLeftY();
+  // m_dio.printSICKSensorValue();
 }
 
 //--------------------------------------------------------------------------------

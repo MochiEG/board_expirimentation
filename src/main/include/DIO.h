@@ -12,11 +12,12 @@ using namespace std;
 class Dio
 {
 public:
-    void printSICKSensorValue();
+    // void printSICKSensorValue();
+    //bool getSICKSensorValue();
 
 protected:
 private:
     // Copie this line and change the variable name and the dio port to create a new dio input object
     // to get the value go in DIO.cpp
-    frc::DigitalInput SICK_sensor{DIO_PORT_SICK_SENSOR};
+    // frc::DigitalInput SICK_sensor{DIO_PORT_SICK_SENSOR};
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Config.h"
+#include "DIO.h"
 #include "Xbox.h"
 #include <rev/SparkMax.h>
 #include <rev/SparkFlex.h>
@@ -14,21 +15,19 @@ class RevHardware {
    
     RevHardware(Xbox* xbox){m_xbox = xbox;}
     void init();
-    double getEncoderDistance(){return m_encoder.Get();}
-    double getVortexTemperature(){return m_vortex.GetMotorTemperature();}
+    double getVortexTemperature(){return m_drive_vortex.GetMotorTemperature();}
     void runVortexWithRT();
-    void runNeoWithLeftStickY();
+    void runDriveAtSpeed(double speed);
+    void runTurnWithLeftY();
+    //void runDriveWithSICK(double speed);
 
    protected:
    private:
 
-    frc::DutyCycleEncoder m_encoder{ENCODER_DIO_PORT,ENCODER_VALUE_FULL_ROTATION,ENCODER_REPORT_ZERO};
-
     Xbox* m_xbox;
-    rev::spark::SparkMax m_neo_550{NEO_550_ID, rev::spark::SparkMax::MotorType::kBrushless};
-    rev::spark::SparkMax m_neo{NEO_ID, rev::spark::SparkMax::MotorType::kBrushless};
-    rev::spark::SparkFlex m_vortex{NEO_VORTEX_ID, rev::spark::SparkFlex::MotorType::kBrushless}; 
-    
-
+    Dio m_dio;
+ 
+    rev::spark::SparkFlex m_drive_vortex{DRIVE_VORTEX_ID, rev::spark::SparkFlex::MotorType::kBrushless}; 
+    rev::spark::SparkFlex m_turn_vortex{TURN_VORTEX_ID, rev::spark::SparkFlex::MotorType::kBrushless};
       
 };

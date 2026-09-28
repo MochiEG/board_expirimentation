@@ -6,9 +6,9 @@
 
 //--------------------------------------------------------------------------------
 //config for RevHardware class
-#define NEO_550_ID 12
-#define NEO_VORTEX_ID 3
-#define NEO_ID 11
+
+#define TURN_VORTEX_ID 15
+#define DRIVE_VORTEX_ID 4
 
 #define ENCODER_DIO_PORT 6
 #define ENCODER_VALUE_FULL_ROTATION 360
@@ -21,7 +21,7 @@
 
 //--------------------------------------------------------------------------------
 //config for Servo class
-#define SERVO_PWM_PORT 0
+#define SERVO_PWM_PORT 2
 
 //--------------------------------------------------------------------------------
 //config for DIO class
